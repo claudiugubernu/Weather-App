@@ -1,0 +1,19 @@
+@include media-md {
+    .app-wrapper {
+        display: flex;
+        align-items: center;
+        .app {
+            width: 400px;
+            height: 700px;
+            &__bottom-body {
+                position: relative !important;
+            }
+            &__copyright {
+                flex-grow: 1;
+                p {
+                    position: relative !important;
+                }
+            }
+        }
+    }
+}

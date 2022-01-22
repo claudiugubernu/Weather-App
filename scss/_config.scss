@@ -1,0 +1,50 @@
+//Fonts
+$main-font: 'Poppins',
+sans-serif;
+//Font-Weight
+$light: 200;
+$regular: 400;
+$bold: 700;
+//Font-Size
+$xsmall:0.625rem;
+$small: 1rem;
+$small-regular: 1.125rem;
+$regular: 1.625rem;
+$x-large: 3.75rem;
+//Font-Color
+$primary-color: #F4F4F4;
+//Background colors
+//Day
+$cold-day: linear-gradient(180deg, #80848D 0%, #ADB7BE 100%);
+$normal-day: linear-gradient(180deg, #52A4DB 0%, #73BAE1 100%);
+$hot-day: linear-gradient(180deg, #EC7303 0%, #ECB327 100%);
+//Night
+$cold-night: linear-gradient(180deg, #3E393F 0%, #535876 100%);
+$normal-night: linear-gradient(180deg, #18255E 0%, #2B2349 100%);
+$hot-night: linear-gradient(180deg, #18255E 0%, #8E0000 100%);
+//Custom-Padding
+$small-p: 20px;
+$regular-p: 30px;
+$big-p: 40px;
+//CSS browser reset
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $main-font;
+}
+
+.blur {
+    filter: blur(3px);
+}
+
+.open {
+    visibility: visible;
+    transition: 0.3s ease-in-out;
+}

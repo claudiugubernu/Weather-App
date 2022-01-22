@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scss/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+    <script type='text/javascript' src='js/config.js'></script>
+    <title>WeatherApp</title>
+</head>
+
+<body>
+    <section class="column">
+        <div class="app-wrapper">
+            <div class="overlay">
+                <div class="overlay__content">
+                    <input id="city-input" type="text" placeholder="Enter a location">
+                </div>
+            </div>
+            <div class="app">
+                <div class="col-12 app__header">
+                    <p class="time">23:20</p>
+                    <a href="#0" class="search-btn"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="col-12 app__top-body">
+                    <p class="location">Allow GEO-LOCATION or Search for a city</p>
+                    <div class="weather-icn">
+                        <img src="./assets/wicons/unknown.png">
+                    </div>
+                    <div class="temp-container">
+                        <p class="temperature"></p>
+                        <span class="degree-span">&deg;C</span>
+                    </div>
+                </div>
+                <div class="col-12 app__bottom-body">
+                    <div class="col-12 feels-like info">
+                        <p class="title">Feels like</p>
+                        <p class="feels-like__deg"></p>
+                        <span class="feel-degree-span">&deg;C</span>
+                    </div>
+                    <div class="col-12 humidity info">
+                        <p class="title">Humidity</p>
+                        <p class="humidity__value"></p>
+                        <span class="humidity-value-span">%</span>
+                    </div>
+                    <div class="col-12 wind-speed info">
+                        <p class="title">Wind Speed</p>
+                        <p class="wind-speed__value"></p>
+                        <span class="wind-speed-value-span">mph</span>
+                    </div>
+                    <div class="col-12 description info">
+                        <p class="label title">Description</p>
+                        <p class="description__txt">Currently: </p>
+                        <p class="description__value"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
