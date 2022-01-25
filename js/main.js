@@ -15,13 +15,6 @@ window.addEventListener('load', () => {
         setCookie('ApiKey', key, 1);
     }
 
-    function setCookie(cname, cvalue, exdays) {
-        const d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        let expires = "expires="+ d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-
     function acceptCookieNotice() {
         let cookieNoticeWrapper = document.querySelector('#cookie-notice');
         let acceptBtn = document.querySelector('.accept-btn');
@@ -31,8 +24,14 @@ window.addEventListener('load', () => {
             setCookie('CookieNotice', 'Accept', 1);
         });
     }
-
     acceptCookieNotice();
+
+    function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
 
     const API = {
         key: key,
