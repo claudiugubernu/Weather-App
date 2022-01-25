@@ -10,8 +10,9 @@ window.addEventListener('load', () => {
             alert("User cancelled")
         } else {
             key = key;
-            setCookie('ApiKey', key, 1);
         }
+    } else {
+        setCookie('ApiKey', key, 1);
     }
 
     function setCookie(cname, cvalue, exdays) {
@@ -31,7 +32,7 @@ window.addEventListener('load', () => {
         });
     }
 
-    acceptCookieNotice()
+    acceptCookieNotice();
 
     const API = {
         key: key,
@@ -70,6 +71,7 @@ window.addEventListener('load', () => {
     let open = false;
 
     addBtn.addEventListener('click', () => {
+        $('#city-input').val("");
 
         if (!open) {
             $('.overlay').css("visibility", "visible");
