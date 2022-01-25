@@ -1,7 +1,38 @@
 window.addEventListener('load', () => {
     let long;
     let lat;
-    let key = config.SECRET_API_KEY;
+    let key = "";
+
+    if(key === "") {
+        key = prompt("API Key missing. Please enter your API Key here. To get a free API key register here: https://api.openweathermap.org", "");
+        
+        if (key == null || key == "") {
+            alert("User cancelled")
+        } else {
+            key = key;
+            setCookie('ApiKey', key, 1);
+        }
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function acceptCookieNotice() {
+        let cookieNoticeWrapper = document.querySelector('#cookie-notice');
+        let acceptBtn = document.querySelector('.accept-btn');
+
+        acceptBtn.addEventListener('click', () => {
+            cookieNoticeWrapper.style.display = 'none';
+            setCookie('CookieNotice', 'Accept', 1);
+        });
+    }
+
+    acceptCookieNotice()
+
     const API = {
         key: key,
         base: "https://api.openweathermap.org/data/2.5/"
@@ -37,7 +68,9 @@ window.addEventListener('load', () => {
 
     //Open-Close Search Box
     let open = false;
+
     addBtn.addEventListener('click', () => {
+
         if (!open) {
             $('.overlay').css("visibility", "visible");
             addBtn.style.transform = "rotate(-45deg)";

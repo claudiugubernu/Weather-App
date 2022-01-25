@@ -14,6 +14,7 @@
     &__header {
         display: flex;
         justify-content: space-between;
+
         .time {
             font-size: $regular;
             color: $primary-color;
@@ -44,6 +45,7 @@
             font-size: $x-large;
         }
     }
+
     &__bottom-body {
         display: flex;
         flex-direction: column;
@@ -54,15 +56,44 @@
         position: fixed !important;
         bottom: 0;
         padding: $regular-p;
+
         .info {
             display: flex;
             justify-content: space-between;
+
             .title {
                 flex-grow: 1;
             }
         }
+
         .description__txt {
             margin-right: 10px;
+        }
+
+        #cookie-notice {
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.2);
+            user-select: none;
+
+            p {
+                margin-bottom: 0;
+            }
+
+            .accept-btn {
+                border: 1px solid #000;
+                border-radius: 5px;
+                padding: 10px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgba(0,0,0,0.5);
+                }
+            }
         }
     }
 }
