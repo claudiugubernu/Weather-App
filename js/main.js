@@ -10,8 +10,28 @@ window.addEventListener('load', () => {
             alert("User cancelled")
         } else {
             key = key;
+            setCookie('ApiKey', key, 1);
         }
     }
+
+    function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function acceptCookieNotice() {
+        let cookieNoticeWrapper = document.querySelector('#cookie-notice');
+        let acceptBtn = document.querySelector('.accept-btn');
+
+        acceptBtn.addEventListener('click', () => {
+            cookieNoticeWrapper.style.display = 'none';
+            setCookie('CookieNotice', 'Accept', 1);
+        });
+    }
+
+    acceptCookieNotice()
 
     const API = {
         key: key,
