@@ -22,13 +22,13 @@ window.addEventListener('load', () => {
         let acceptBtn = document.querySelector('.accept-btn');
 
         if(!getCookie('CookieNotice')) {
-            cookieNoticeWrapper.style.display = 'flex';
+            cookieNoticeWrapper.classList.add('active');
         } else {
-            cookieNoticeWrapper.style.display = 'none';
+            cookieNoticeWrapper.classList.remove('active');
         }
 
         acceptBtn.addEventListener('click', () => {
-            cookieNoticeWrapper.style.display = 'none';
+            cookieNoticeWrapper.classList.remove('active');
             setCookie('CookieNotice', 'Accept', 1);
         });
     }
