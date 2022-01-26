@@ -1,23 +1,31 @@
 window.addEventListener('load', () => {
     let long;
     let lat;
-    let key = "";
+    let key;
 
-    if(key === "") {
-        key = prompt("API Key missing. Please enter your API Key here. To get a free API key register here: https://api.openweathermap.org", "");
-        
-        if (key == null || key == "") {
-            alert("User cancelled")
-        } else {
-            key = key;
+    if(!getCookie('ApiKey')) {  
+          
+        if(key == null || key == "") {
+            key = prompt("API Key missing. Please enter your API Key here. To get a free API key register here: https://api.openweathermap.org", "");
+            
+            if (key == null || key == "") {
+                alert("User cancelled");
+            } else {
+                key = key;
+            }
         }
-    } else {
-        setCookie('ApiKey', key, 1);
     }
-
+    setCookie('ApiKey', key, 1);
+    
     function acceptCookieNotice() {
         let cookieNoticeWrapper = document.querySelector('#cookie-notice');
         let acceptBtn = document.querySelector('.accept-btn');
+
+        if(!getCookie('CookieNotice')) {
+            cookieNoticeWrapper.style.display = 'flex';
+        } else {
+            cookieNoticeWrapper.style.display = 'none';
+        }
 
         acceptBtn.addEventListener('click', () => {
             cookieNoticeWrapper.style.display = 'none';
@@ -32,6 +40,21 @@ window.addEventListener('load', () => {
         let expires = "expires="+ d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
 
     const API = {
         key: key,
