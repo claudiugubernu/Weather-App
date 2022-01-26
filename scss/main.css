@@ -85,13 +85,16 @@ body {
 
 .app__bottom-body #cookie-notice {
   font-size: 12px;
-  display: flex;
+  display: none;
   align-items: center;
   border: 1px solid #000;
   border-radius: 5px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.2);
   user-select: none; }
+
+.app__bottom-body #cookie-notice.active {
+  display: flex; }
 
 .app__bottom-body #cookie-notice p {
   margin-bottom: 0; }
