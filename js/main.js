@@ -83,9 +83,9 @@ window.addEventListener('load', () => {
     //Open-Close Search Box
     let open = false;
 
-    addBtn.addEventListener('click', () => {
+    addBtn.addEventListener('click', (e) => {
         $('#city-input').val("");
-
+        e.preventDefault();
         if (!open) {
             $('.overlay').css("visibility", "visible");
             addBtn.style.transform = "rotate(-45deg)";
@@ -101,7 +101,6 @@ window.addEventListener('load', () => {
             open = false;
         }
     });
-
 
     //Search-box functionality 
     const searchBox = document.querySelector('#city-input');
