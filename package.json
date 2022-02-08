@@ -4,8 +4,7 @@
   "description": "Weather APP v2.0",
   "main": "js/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass-dev": "node-sass --watch scss -o scss"
+    "sass": "node-sass --watch scss -o scss"
   },
   "repository": {
     "type": "git",

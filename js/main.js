@@ -1,21 +1,12 @@
 window.addEventListener('load', () => {
     let long;
     let lat;
-    let key;
 
-    if(!getCookie('ApiKey')) {  
-          
-        if(key == null || key == "") {
-            key = prompt("API Key missing. Please enter your API Key here. To get a free API key register here: https://api.openweathermap.org", "");
-            
-            if (key == null || key == "") {
-                alert("User cancelled");
-            } else {
-                key = key;
-            }
-        }
+    if (!sessionStorage.getItem('key')) {
+        let key = prompt("API Key missing. Please enter your API Key here. To get a free API key register here: https://api.openweathermap.org", "")
+        sessionStorage.setItem('key',key);
     }
-    setCookie('ApiKey', key, 1);
+
     
     function acceptCookieNotice() {
         let cookieNoticeWrapper = document.querySelector('#cookie-notice');
@@ -57,7 +48,7 @@ window.addEventListener('load', () => {
       }
 
     const API = {
-        key: key,
+        key: sessionStorage.getItem('key'),
         base: "https://api.openweathermap.org/data/2.5/"
     }
     const appScreen = document.querySelector('.app');
@@ -92,9 +83,9 @@ window.addEventListener('load', () => {
     //Open-Close Search Box
     let open = false;
 
-    addBtn.addEventListener('click', () => {
+    addBtn.addEventListener('click', (e) => {
         $('#city-input').val("");
-
+        e.preventDefault();
         if (!open) {
             $('.overlay').css("visibility", "visible");
             addBtn.style.transform = "rotate(-45deg)";
@@ -110,7 +101,6 @@ window.addEventListener('load', () => {
             open = false;
         }
     });
-
 
     //Search-box functionality 
     const searchBox = document.querySelector('#city-input');
